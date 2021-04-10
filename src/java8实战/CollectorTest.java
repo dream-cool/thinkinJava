@@ -25,33 +25,33 @@ public class CollectorTest {
 
         System.out.println(data.stream().collect(groupingBy(intFun)));
 
-        System.out.println(data.stream().collect(groupingBy(var -> var.getClass())));
+        System.out.println(data.stream().collect(groupingBy(Object::getClass)));
 
-        System.out.println(data.stream().collect(counting()));
+        System.out.println((Long) data.stream().count());
 
         data.stream().max(Comparator.comparingInt(var -> var.toString().length())).ifPresent(System.out::println);
 
         System.out.println(data.stream().collect(summarizingInt(var -> var.toString().length())));
 
         //拼接
-        System.out.println(data.stream().map(var -> var.toString()).collect(joining()));
+        System.out.println(data.stream().map(Object::toString).collect(joining()));
 
-        System.out.println(data.stream().map(var -> var.toString()).collect(joining(",")));
+        System.out.println(data.stream().map(Object::toString).collect(joining(",")));
 
-        System.out.println(data.stream().map(var -> var.toString()).collect(joining(",","[","]")));
+        System.out.println(data.stream().map(Object::toString).collect(joining(",","[","]")));
 
         //规约
-        System.out.println(data.stream().collect(reducing(0, intFun ,(i,j) -> i + j)));
+        System.out.println(data.stream().map(intFun).reduce(0, Integer::sum));
 
-        System.out.println(data.stream().collect(reducing(0, intFun ,Integer::sum)));
+        System.out.println(data.stream().map(intFun).reduce(0, Integer::sum));
         //分区
         System.out.println(data.stream().collect(partitioningBy(var -> var.toString().length() > 4)));
         //分区再分组
-        System.out.println(data.stream().collect(partitioningBy(var -> var.toString().length() > 4, groupingBy(var -> var.getClass()))));
+        System.out.println(data.stream().collect(partitioningBy(var -> var.toString().length() > 4, groupingBy(Object::getClass))));
     }
 
     public static void main(String[] args) {
-        test2();
+        test1();
     }
 
     public static void test2(){

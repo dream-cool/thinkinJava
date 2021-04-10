@@ -12,7 +12,7 @@ public class OptionalTest {
     public static void test1(){
         List<String> data = Arrays.asList("aaa","bbbb", null,"eeee");
         data.stream()
-                .map(var -> Optional.ofNullable(var))
+                .map(Optional::ofNullable)
                 .forEach(var -> var.ifPresent(System.out::println));
     }
 

@@ -1,10 +1,7 @@
 package java8实战.方法引用;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.function.BiFunction;
-import java.util.function.Consumer;
 import java.util.function.Function;
 
 /**
@@ -24,8 +21,8 @@ public class MethodReference {
      */
     public static void test1() {
         //静态方法引用
-        stringList.stream().forEach(System.out::print);
-        stringList.stream().forEach(str -> System.out.print(str));
+        stringList.forEach(System.out::print);
+        stringList.forEach(str -> System.out.print(str));
         System.out.println();
         //首位参数作为实例 方法引用
         Function<String,Integer> fun = String::length;

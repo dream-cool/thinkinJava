@@ -1,7 +1,5 @@
 package java8实战.CompletableFuture.BestPriceSelector;
 
-import org.junit.Assert;
-import org.junit.Test;
 
 import java.util.List;
 import java.util.Random;
@@ -120,47 +118,47 @@ public class Shop {
                 .collect(toList());
     }
 
-    @Test
-    public void testCalculatePrice() {
-        double colaPrice = calculatePrice("cola");
-        Assert.assertEquals(true, colaPrice > 0);
-        try {
-            calculatePrice("1");
-        } catch (Exception e) {
-            Assert.assertEquals(IllegalArgumentException.class, e.getClass());
-        }
-    }
+//    @Test
+//    public void testCalculatePrice() {
+//        double colaPrice = calculatePrice("cola");
+//        Assert.assertEquals(true, colaPrice > 0);
+//        try {
+//            calculatePrice("1");
+//        } catch (Exception e) {
+//            Assert.assertEquals(IllegalArgumentException.class, e.getClass());
+//        }
+//    }
+//
+//    @Test
+//    public void testDelay() {
+//        long start = System.currentTimeMillis();
+//        delay();
+//        long end = System.currentTimeMillis();
+//        long costTime = end - start;
+//        Assert.assertEquals(true, costTime < 2000);
+//        Assert.assertEquals(true, costTime >= 1000);
+//    }
+//
+//    @Test
+//    public void testGetPrice() {
+//        long start = System.currentTimeMillis();
+//        double colaPrice = getPrice("cola");
+//        long end = System.currentTimeMillis();
+//        long costTime = end - start;
+//        Assert.assertEquals(true, costTime < 2000);
+//        Assert.assertEquals(true, costTime >= 1000);
+//        Assert.assertEquals(true, colaPrice > 0);
+//    }
 
-    @Test
-    public void testDelay() {
-        long start = System.currentTimeMillis();
-        delay();
-        long end = System.currentTimeMillis();
-        long costTime = end - start;
-        Assert.assertEquals(true, costTime < 2000);
-        Assert.assertEquals(true, costTime >= 1000);
-    }
-
-    @Test
-    public void testGetPrice() {
-        long start = System.currentTimeMillis();
-        double colaPrice = getPrice("cola");
-        long end = System.currentTimeMillis();
-        long costTime = end - start;
-        Assert.assertEquals(true, costTime < 2000);
-        Assert.assertEquals(true, costTime >= 1000);
-        Assert.assertEquals(true, colaPrice > 0);
-    }
-
-    @Test
-    public void testGetPriceAsync() throws ExecutionException, InterruptedException {
-        long start = System.currentTimeMillis();
-        Future<Double> cola = getPriceAsync("cola");
-        long end = System.currentTimeMillis();
-        long costTime = end - start;
-        Assert.assertEquals(true, costTime < 1000);
-        Assert.assertEquals(true, cola.get() > 0);
-    }
+//    @Test
+//    public void testGetPriceAsync() throws ExecutionException, InterruptedException {
+//        long start = System.currentTimeMillis();
+//        Future<Double> cola = getPriceAsync("cola");
+//        long end = System.currentTimeMillis();
+//        long costTime = end - start;
+//        Assert.assertEquals(true, costTime < 1000);
+//        Assert.assertEquals(true, cola.get() > 0);
+//    }
 
     public static void main(String[] args) {
         Shop shop = new Shop("Test");
